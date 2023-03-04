@@ -8,6 +8,12 @@ body {
     font-size: 30pt;
     
 }
+
+  .white-link {
+    color: white;
+  }
+
+
 #btn-login {
   color: black;
 }
