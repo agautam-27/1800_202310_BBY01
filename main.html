@@ -50,16 +50,11 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
 
-    <div class="container-fluid bg-light text-dark p-5">
-        <div class="">
-            <h1 class="display-4">Good morning, <span id="name-goes-here">Name</span></h1>
-            <hr>
-            <p>Quote of the day: <span id="quote-goes-here"></span></p>
-        </div>
-    </div>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box"/>
+    <div id="map"></div>
+
 
     <!-- our own footer goes here-->
-    <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
@@ -67,6 +62,12 @@
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/main.js"></script>
+    <!--MAP SCRIPT-->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0TJBKwEueT-bnK1JYoXvCecOcwfTFtY&callback=initMap"></script>
+    <script src="./scripts/map.js"></script>
+    <!--MAP SEARCH BAR-->
+    <script type="module" src="mapSearch.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0TJBKwEueT-bnK1JYoXvCecOcwfTFtY&libraries=places" defer></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
