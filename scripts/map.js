@@ -1,66 +1,48 @@
-// function initMap(){
-//     map = new google.maps.Map(document.getElementById("map"),{
-//         center: {lat: 40.7128, lng: -74.0060},
-//         zoom: 5,
-//         mapId: '23004c6536fafcfd'
+var map = L.map('map').setView([49.1913, -122.8490], 13);
 
-//     });
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
-    
-// }
+var geojsonMarkerOptions = {
+    radius: 8,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+};
 
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
-let map, infoWindow;
+// Set a variable to keep track of whether the mouse is being held down
+var mouseDown = false;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 6,
-  });
-  infoWindow = new google.maps.InfoWindow();
+// Set a variable to keep track of the timeout for the long press
+var longPressTimeout;
 
-  const locationButton = document.createElement("button");
-
-  locationButton.textContent = "Pan to Current Location";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
-          infoWindow.open(map);
-          map.setCenter(pos);
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
+// Add a marker to the map when the user clicks and holds for 3 seconds
+function onMapMouseDown(e) {
+    mouseDown = true;
+    longPressTimeout = setTimeout(function() {
+        if (mouseDown) {
+            var confirmCreateMarker = confirm("Do you want to mark a hazard here?");
+            if (confirmCreateMarker) {
+                var condition = prompt("What is the hazard? (snow, ice, flood)");
+                var now = new Date();
+                var dateTime = now.toLocaleString();
+                var popupContent = "<b>Condition: </b>" + condition + "<br><b>Created at: </b>" + dateTime;
+                var marker = L.marker(e.latlng).addTo(map);
+                marker.bindPopup(popupContent).openPopup();
+            }
         }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  });
+    }, 2000);
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
-  );
-  infoWindow.open(map);
+// Clear the timeout if the user releases the mouse button before the 3-second mark
+function onMapMouseUp() {
+    mouseDown = false;
+    clearTimeout(longPressTimeout);
 }
 
-window.initMap = initMap;
+map.on('mousedown', onMapMouseDown);
+map.on('mouseup', onMapMouseUp);
