@@ -1,9 +1,15 @@
+  
+// Create a Firestore reference
+var firestore = firebase.firestore();
+
+
 var map = L.map('map').setView([49.1913, -122.8490], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
 
 var geojsonMarkerOptions = {
     radius: 8,
@@ -13,7 +19,6 @@ var geojsonMarkerOptions = {
     opacity: 1,
     fillOpacity: 0.8
 };
-
 // Set a variable to keep track of whether the mouse is being held down
 var mouseDown = false;
 
@@ -33,6 +38,25 @@ function onMapMouseDown(e) {
                 var popupContent = "<b>Condition: </b>" + condition + "<br><b>Created at: </b>" + dateTime;
                 var marker = L.marker(e.latlng).addTo(map);
                 marker.bindPopup(popupContent).openPopup();
+
+                // Save the marker data to Firestore
+                var user = firebase.auth().currentUser;
+                if (user) {
+                    var markerData = {
+                        condition: condition,
+                        created_at: now,
+                        latitude: e.latlng.lat,
+                        longitude: e.latlng.lng,
+                    };
+                    firestore
+                        .collection("users")
+                        .doc(user.uid)
+                        .collection("markers")
+                        .doc() // Firestore will automatically generate a unique ID
+                        .set(markerData);
+                } else {
+                    console.log("User not signed in.");
+                }
             }
         }
     }, 2000);
@@ -46,3 +70,42 @@ function onMapMouseUp() {
 
 map.on('mousedown', onMapMouseDown);
 map.on('mouseup', onMapMouseUp);
+
+// const markersRef = firestore.collection("users").doc(user.uid).collection("markers");
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      const markersRef = firestore.collection("users").doc(user.uid).collection("markers");
+  
+      markersRef.get().then((querySnapshot) => {
+        console.log("Retrieved markers:", querySnapshot.docs);
+        querySnapshot.forEach((doc) => {
+            const { latitude, longitude, condition, created_at } = doc.data();
+            const popupContent = `<b>Condition:</b> ${condition}<br><b>Created at:</b> ${created_at.toDate().toLocaleString()}`;
+            const marker = L.marker([latitude, longitude]).addTo(map);
+            marker.bindPopup(popupContent);
+        });
+      }).catch((error) => {
+        console.error("Error getting markers:", error);
+      });
+    }
+});
+
+//Gets every marker on Firestore and puts it on the map
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      const markersRef = firestore.collectionGroup("markers");
+  
+      markersRef.get().then((querySnapshot) => {
+        console.log("Retrieved markers:", querySnapshot.docs);
+        querySnapshot.forEach((doc) => {
+            const { latitude, longitude, condition, created_at } = doc.data();
+            const popupContent = `<b>Condition:</b> ${condition}<br><b>Created at:</b> ${created_at.toDate().toLocaleString()}`;
+            const marker = L.marker([latitude, longitude]).addTo(map);
+            marker.bindPopup(popupContent);
+        });
+      }).catch((error) => {
+        console.error("Error getting markers:", error);
+      });
+    }
+});
