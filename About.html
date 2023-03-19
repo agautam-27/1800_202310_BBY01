@@ -2,111 +2,204 @@
 <html lang="en">
 
 <head>
-    <title>SnowGlobe</title>
-    <meta name="SnowGlobe template" content="SnowGlobe">
+  <title>SnowGlobe</title>
+  <meta name="SnowGlobe template" content="SnowGlobe">
 
-    <!------------------------>
-    <!-- Required meta tags -->
-    <!------------------------>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!------------------------>
+  <!-- Required meta tags -->
+  <!------------------------>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!------------------------------------------>
-    <!-- Bootstrap Library CSS JS CDN go here -->
-    <!------------------------------------------>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  <!------------------------------------------>
+  <!-- Bootstrap Library CSS JS CDN go here -->
+  <!------------------------------------------>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-------------------------------------------->
-    <!-- Other libraries and styles of your own -->
-    <!-------------------------------------------->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <!-------------------------------------------->
+  <!-- Other libraries and styles of your own -->
+  <!-------------------------------------------->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link rel="stylesheet" href="./styles/navFooter.css">
+  <link rel="stylesheet" href="./styles/aboutUs.css">
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 </head>
 
 <body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
 
-    <!-- our own navbar goes here -->
-    <nav id="navbarPlaceholder"></nav>
+  <!-- our own navbar goes here -->
+  <!-- <nav id="navbarPlaceholder"></nav> -->
 
-    <!-- the body of your page goes here -->
-    <!-- stuff -->
+  <!-- the body of your page goes here -->
+  <!-- stuff -->
 
-    <div class="about-section">
-        <h1>About Us</h1>
-        <p>This is our team! It's nice to meet you! We're always available to contact if you need any information about our app!
-          We want to make sure that you have a great experience and we'll be happy to help with anything related to the app!
+  <!-- ! NAVBAR STARTS HERE -->
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
+      <h1><a href="#">SnowGlobe</a></h1>
+    </div>
+    <ul class="menu">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="About.html">About us</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="Profile.html">Profile</a></li>
+      <li><a href="Faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+  <!-- ! NAVBAR ENDS HERE -->
+
+
+  <!-- * About us Image Section Starts here  -->
+
+  <div class="banner">
+    <img src="/images/about2.jpeg" alt="Your Image">
+    <div class="text">
+      <h1>About Us</h1>
+    </div>
+  </div>
+
+  <!-- * About us Image Section Ends here  -->
+
+  <!-- ? Text heading -->
+  <div class="features">
+    <h1>Our Story</h1>
+  </div>
+  <!-- ? Text heading -->
+
+  <!-- * About us Story Text Starts here -->
+  <div class="story-text">
+    <p>
+      SnowGlobe is the ultimate driving companion for staying safe, prepared, and on-time. Our advanced routing system
+      helps you find the best and safest routes, with real-time traffic data and hazard alerts. You can customize your
+      experience, save favorite routes, and set up alerts. Our community-driven approach lets you confirm and rate
+      hazards, helping others stay informed. Sign up for SnowGlobe and enjoy a safer, smarter, and more personalized
+      driving experience!
+      <br>
+      <br>
+      At SnowGlobe, we're passionate about making driving safer and more enjoyable for everyone. We believe that by
+      harnessing the power of technology and community, we can create a more connected and informed driving experience.
+      That's why we're constantly updating and improving our platform, incorporating the latest features and feedback
+      from our users. Whether you're a daily commuter or a weekend adventurer, SnowGlobe is here to help you navigate
+      the road ahead with confidence and ease.
+    </p>
+  </div>
+
+  <!-- * About us Story Text Ends here -->
+
+  <!-- ? Text heading -->
+  <div class="features">
+    <h1>Founders</h1>
+  </div>
+  <!-- ? Text heading -->
+  <!-- * Founders Section Starts here  FOR CONNIE-->
+  <section class="connie">
+    <div class="connie-content">
+      <img src="/images/Connie1.png" alt="Portrait photo">
+      <div class="connie-text">
+        <h2>Connie</h2>
+        <p>
+          My name is connie, I am a student at BCIT in the Computer Systems Technology program, I love design and the
+          intricacies invloving it.
+        </p>
+        <p>
+          I like being able to help others and give people support when I can. I also have various hobbies such as
+          gaming. Thank you for your interest in our app!
         </p>
       </div>
-      
-      <h2 style="text-align:center">Our Team</h2>
-      <div class="row">
-        <div class="column">
-          <div class="card">
-            <img src="./images/avator.jpg" alt="Jane" style="width:100%">
-            <div class="container">
-              <h2>Anshul Gautam</h2>
-              <p class="title">CEO & Founder</p>
-              <p>Lorem ipsum dolor sit amet consect</p>
-              <p>anshul@example.com</p>
-            </div>
-          </div>
-        </div>
-      
-        <div class="column">
-          <div class="card">
-            <img src="./images/Connie.png" alt="Mike" style="width:100%">
-            <div class="container">
-              <h2>Connie Gildemeister</h2>
-              <p class="title">CEO & Founder</p>
-              <p>My name is connie, I am a student at BCIT in the Computer Systems Technology program, I love design and the intricacies invloving it.
-                I like being able to help others and give people support when I can. I also have various hobbies such as gaming. Thank you for your interest in our app!
-              </p>
-              <p>connie@example.com</p>
-            </div>
-          </div>
-        </div>
-      
-        <div class="column">
-          <div class="card">
-            <img src="./images/avator.jpg" alt="John" style="width:100%">
-            <div class="container">
-              <h2>Hiro</h2>
-              <p class="title">CEO & Founder</p>
-              <p>Lorem ipsum dolor sit amet consect</p>
-              <p>john@example.com</p>
-            </div>
-          </div>
-        </div>
+    </div>
+  </section>
+
+  <!-- * Founders Section Ends here -->
+
+  <!-- * Founders Section Text left picture right Starts here - FOR ANSHUL -->
+
+
+  <div class="anshul">
+    <div class="anshul-text">
+      <h2>Anshul</h2>
+      <p>Hey, I'm Anshul! I'm currently enrolled in the Computer Systems Technology program at BCIT, where I'm gaining
+        knowledge in the world of technology. I love photography which leads me to try flying drones and capture
+        stunning aerial shots, and when I'm not behind the camera, I'm either cycling or playing my guitar. Exploring
+        new places and immersing myself in different cultures are some of my favorite things to do.
+      </p>
+      <p>Lately, I have started to enjoy coding and learning about software development. I am interested in the tech
+        industry and want to see how I can use my creativity in combination with technology to create innovative things.
+        The tech industry is constantly changing and evolving, and I am eager to learn and grow along with it. I am
+        excited to see what the future holds!.</p>
+    </div>
+    <div class="anshul-img">
+      <img src="/images/Anshul.png" alt="Portrait">
+    </div>
+  </div>
+
+  <!-- * Founders Section Text left picture right Ends here -->
+
+  <!-- * Founders Section Starts here - FOR HIRO -->
+  <section class="hiro">
+    <div class="hiro-content">
+      <img src="/images/Hiro.png" alt="Portrait photo">
+      <div class="hiro-text">
+        <h2>Hiro</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lectus sed ipsum auctor bibendum.
+          Quisque scelerisque malesuada mauris, vitae cursus tellus finibus vel. Sed pharetra nisi sit amet ipsum
+          tincidunt, in vestibulum velit hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+          posuere cubilia Curae; Nunc et metus quam. Sed vel libero bibendum, faucibus ipsum nec, maximus velit.
+        </p>
+
       </div>
+    </div>
+  </section>
 
-    <!-- our own footer goes here-->
-    <nav id="footerPlaceholder"></nav>
+  <!-- * Founders Section Ends here -->
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_BBY01.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+  <hr/>
+
+  <!--! FOOTER SECITON STARTS HERE  -->
+
+  <footer class="fttr">
+    <h2>SnowGlobe</h2>
+    <p>
+      <a href="Home.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Faq.html">Faq</a>
+    </p>
+    <p class="copyright">
+      Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
+    </p>
+  </footer>
+
+
+  <!--! FOOTER SECTION ENDS HERE  -->
+  <!-- our own footer goes here-->
+  <!-- <nav id="footerPlaceholder"></nav> -->
+
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+  <script src="./scripts/firebaseAPI_BBY01.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 
