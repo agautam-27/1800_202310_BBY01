@@ -34,7 +34,8 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/navFooter.css">
+    <link rel="stylesheet" href="./styles/contact.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 </head>
@@ -49,93 +50,81 @@
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
-
-    <!--Section: Contact v.2-->
-<section class="mb-4">
-
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4" style="color: white;">Contact us</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5" style="color: white;">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        a matter of hours to help you.</p>
-
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control">
-                            <label for="name" class=""style="color: white;">Name</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
-                            <label for="email" class="" style="color: white;">Email</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message" style="color: white;">Message</label>
-                        </div>
-
-                    </div>
-                </div>
-                <!--Grid row-->
-
-            </form>
-
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-            </div>
-            <div class="status"></div>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-3 text-center">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p style="color: white;">Somewhere in CANADA</p>
-                </li>
-
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p style="color: white;">+1 000-000-0000</p>
-                </li>
-
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p style="color: white;">contact@SnowGlobe.com</p>
-                </li>
-            </ul>
-        </div>
-        <!--Grid column-->
-
+      <!-- ! NAVBAR STARTS HERE -->
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
+      <h1><a href="#">SnowGlobe</a></h1>
     </div>
+    <ul class="menu">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="About.html">About us</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="Faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+  <!-- ! NAVBAR ENDS HERE -->
 
-</section>
-<!--Section: Contact v.2-->
+
+      <!-- * Faq Image Section Starts here  -->
+  
+      <div class="banner">
+        <img src="/images/contact.jpg" alt="Your Image">
+        <div class="text">
+          <h1>Contact Us</h1>
+        </div>
+      </div>
+    
+      <!-- * Faq Image Section Ends here  -->
+  
+  
+       <!-- ? Text heading -->
+    <div class="features">
+      <h1>Contact Us</h1>
+    </div>
+    <!-- ? Text heading -->
+
+    <!-- * Contact page form starts here -->
+    <section class="contact">
+        <div class="container">
+          <!-- <h2>Contact Us</h2> -->
+          <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+      
+    <!-- * Contact page form ends here -->
+
+    <br>
+    <br>
+    <hr>
+  <!--! FOOTER SECITON STARTS HERE  -->
+
+  <footer class="fttr">
+    <h2>SnowGlobe</h2>
+    <p>
+      <a href="Home.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Faq.html">Faq</a>
+    </p>
+    <p class="copyright">
+      Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
+    </p>
+  </footer>
+
+
+  <!--! FOOTER SECTION ENDS HERE  -->
+
     <!-- our own footer goes here-->
-    <nav id="footerPlaceholder"></nav>
+    <!-- <nav id="footerPlaceholder"></nav> -->
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
