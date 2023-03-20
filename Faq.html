@@ -2,101 +2,171 @@
 <html lang="en">
 
 <head>
-    <title>SnowGlobe</title>
-    <meta name="SnowGlobe template" content="SnowGlobe">
+  <title>SnowGlobe</title>
+  <meta name="SnowGlobe template" content="SnowGlobe">
 
-    <!------------------------>
-    <!-- Required meta tags -->
-    <!------------------------>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!------------------------>
+  <!-- Required meta tags -->
+  <!------------------------>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!------------------------------------------>
-    <!-- Bootstrap Library CSS JS CDN go here -->
-    <!------------------------------------------>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  <!------------------------------------------>
+  <!-- Bootstrap Library CSS JS CDN go here -->
+  <!------------------------------------------>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-------------------------------------------->
-    <!-- Other libraries and styles of your own -->
-    <!-------------------------------------------->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <!-------------------------------------------->
+  <!-- Other libraries and styles of your own -->
+  <!-------------------------------------------->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link rel="stylesheet" href="./styles/navFooter.css">
+  <link rel="stylesheet" href="./styles/faq.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 </head>
 
 <body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
 
-    <!-- our own navbar goes here -->
+  <!-- our own navbar goes here -->
+  <!-- <nav id="navbarPlaceholder"></nav> -->
+  <!-- the body of your page goes here -->
+  <!-- stuff -->
 
-    <!-- the body of your page goes here -->
-    <!-- stuff -->
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              What is SnowGlobe?
-            </button>
-          </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">SnowGlobe is a weather based app that allows users to ping hazardous areas due to weather related incidents. TThe focus of 
-              SnowGlobe is to base it around users and allow them to input where hazards are located, hazads may may be anything from black ice to heavy rainfall
-              We want to strive for is ease-of-use and a user focused enviroment!
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              Can I contact the team?
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Yes you can! our team is always willing to answer any questions you may have! You can ask any questions you may have in our 
-              "Contact" page. If you want to speak to any one of us directly, you can find take a look at our "About us" page and use our emails there! We're happy to 
-              help in any way we can!</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              What are some of the features in SnowGlobe?
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">SnowGlobe features not only Hazard pinging, but it also allows users to mark their favourite locations and even allows the use
-              of getting alternate routes in case there is a hazard impacting your normal route.
-            </div>
-          </div>
+  <!-- ! NAVBAR STARTS HERE -->
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
+      <h1><a href="#">SnowGlobe</a></h1>
+    </div>
+    <ul class="menu">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="About.html">About us</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="Faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+  <!-- ! NAVBAR ENDS HERE -->
+
+    <!-- * Faq Image Section Starts here  -->
+  
+    <div class="banner">
+      <img src="/images/faq.jpeg" alt="Your Image">
+      <div class="text">
+        <h1>Frequently Asked Questions</h1>
+      </div>
+    </div>
+  
+    <!-- * Faq Image Section Ends here  -->
+
+
+     <!-- ? Text heading -->
+  <div class="features">
+    <h1>FAQ's</h1>
+  </div>
+  <!-- ? Text heading -->
+
+
+    
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          What is SnowGlobe?
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">SnowGlobe is a weather based app that allows users to ping hazardous areas due to
+          weather related incidents. TThe focus of
+          SnowGlobe is to base it around users and allow them to input where hazards are located, hazads may may be
+          anything from black ice to heavy rainfall
+          We want to strive for is ease-of-use and a user focused enviroment!
         </div>
       </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Can I contact the team?
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Yes you can! our team is always willing to answer any questions you may have! You
+          can ask any questions you may have in our
+          "Contact" page. If you want to speak to any one of us directly, you can find take a look at our "About us"
+          page and use our emails there! We're happy to
+          help in any way we can!</div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          What are some of the features in SnowGlobe?
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">SnowGlobe features not only Hazard pinging, but it also allows users to mark their
+          favourite locations and even allows the use
+          of getting alternate routes in case there is a hazard impacting your normal route.
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- our own footer goes here-->
-    <nav id="footerPlaceholder"></nav>
+  <br>
+  <br>
+  <hr>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_BBY01.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+  <!--! FOOTER SECITON STARTS HERE  -->
+
+  <footer class="fttr">
+    <h2>SnowGlobe</h2>
+    <p>
+      <a href="Home.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Faq.html">Faq</a>
+    </p>
+    <p class="copyright">
+      Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
+    </p>
+  </footer>
+
+
+  <!--! FOOTER SECTION ENDS HERE  -->
+
+  <!-- our own footer goes here-->
+  <!-- <nav id="footerPlaceholder"></nav> -->
+
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+  <script src="./scripts/firebaseAPI_BBY01.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 
