@@ -55,6 +55,7 @@ function onMapMouseDown(e) {
                         latitude: e.latlng.lat,
                         longitude: e.latlng.lng,
                     };
+                    // Add Points to users
                     firestore
                         .collection("users")
                         .doc(user.uid)
