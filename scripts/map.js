@@ -10,6 +10,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+L.Routing.control({
+    waypoints: [
+        L.latLng(57.74, 11.94),
+        L.latLng(57.6792, 11.949)
+    ],
+    routeWhileDragging: true
+}).addTo(map);
 
 var geojsonMarkerOptions = {
     radius: 8,
@@ -52,8 +59,24 @@ function onMapMouseDown(e) {
                         .collection("users")
                         .doc(user.uid)
                         .collection("markers")
-                        .doc() // Firestore will automatically generate a unique ID
-                        .set(markerData);
+                        .add(markerData)
+                        .then(function() {
+                            console.log("Marker added to Firestore.");
+                            // Increment user's points
+                            firestore
+                                .collection("users")
+                                .doc(user.uid)
+                                .update({ points: firebase.firestore.FieldValue.increment(1) })
+                                .then(function() {
+                                    console.log("User's points incremented.");
+                                })
+                                .catch(function(error) {
+                                    console.error("Error incrementing user's points:", error);
+                                });
+                        })
+                        .catch(function(error) {
+                            console.error("Error adding marker to Firestore:", error);
+                        });
                 } else {
                     console.log("User not signed in.");
                 }
@@ -62,7 +85,7 @@ function onMapMouseDown(e) {
     }, 2000);
 }
 
-// Clear the timeout if the user releases the mouse button before the 3-second mark
+// Clear the timeout if the user releases the mouse button before the 2-second mark
 function onMapMouseUp() {
     mouseDown = false;
     clearTimeout(longPressTimeout);
