@@ -34,7 +34,7 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/landingpage.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 </head>
@@ -46,6 +46,19 @@
 
     <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
+
+    <nav>
+        <div class="logo">
+            <a href="#"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
+            <h1><a href="#">SnowGlobe</a></h1>
+        </div>
+        <ul class="menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About us</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Faq.html">FAQ</a></li>
+        </ul>
+    </nav>
 
     <!-- the body of your page goes here -->
     <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
@@ -67,9 +80,9 @@
                 </div>
                 <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Favorites</a>
-                        <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Routes</a>
-                        <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Locations</a>
+                        <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Favourites</a>
+                        <a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false"><i class="icofont-heart"></i> Stats</a>
+                        <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="icofont-heart"></i> Reviews</a>
                     </li>
                 </ul>
             </div>
@@ -78,7 +91,7 @@
             <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade  active show" id="favourites" role="tabpanel" aria-labelledby="favourites-tab">
-                        <h4 class="font-weight-bold mt-0 mb-4">Favorites</h4>
+                        <h4 class="font-weight-bold mt-0 mb-4">Favourites</h4>
                         <div class="row">
                             <div class="col-md-4 col-sm-6 mb-4 pb-2">
                                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -230,7 +243,18 @@
 </div>
 
     <!-- our own footer goes here-->
-    <nav id="footerPlaceholder"></nav>
+    <footer class="fttr">
+        <h2>SnowGlobe</h2>
+        <p>
+            <a href="Home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Faq.html">Faq</a>
+        </p>
+        <p class="copyright">
+            Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
+        </p>
+    </footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
