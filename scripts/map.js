@@ -10,14 +10,67 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+
+
+// //Routing Button
 L.Routing.control({
     waypoints: [
-        L.latLng(57.74, 11.94),
-        L.latLng(57.6792, 11.949)
     ],
-    routeWhileDragging: true
-}).addTo(map);
+    showAlternatives: true,
+    altLineOptions: {
+        styles: [
+            {color: 'black', opacity: 0.15, weight: 9},
+            {color: 'white', opacity: 0.8, weight: 6},
+            {color: 'blue', opacity: 0.5, weight: 2}
+        ]
+    },
+    geocoder: L.Control.Geocoder.nominatim(),
+    routeWhileDragging: true,
+    reverseWaypoints: true,
+    autoComplete: true,
+    autoRoute: true,
+  }).addTo(map);
 
+  
+
+// // Create a new Leaflet control for the minimize button
+var minimizeControl = L.Control.extend({
+    options: {
+        position: 'topleft'
+    },
+    
+    onAdd: function (map) {
+        // Create a container element for the button
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+        
+        // Create the button element and add it to the container
+        var button = L.DomUtil.create('a', 'leaflet-control-minimize-button', container);
+        button.title = 'Minimize Routing Machine';
+        
+        // Add a click event listener to the button
+        L.DomEvent.on(button, 'click', function (event) {
+            // Toggle the visibility of the routing control
+            var routingControl = document.querySelector('.leaflet-routing-container');
+            if (routingControl.style.display == 'none') {
+                routingControl.style.display = 'block';
+            } else {
+                routingControl.style.display = 'none';
+            }
+            
+            // Prevent the click event from propagating to the map
+            L.DomEvent.stopPropagation(event);
+        });
+        
+        return container;
+    }
+});
+
+// Add the minimize button control to the map
+map.addControl(new minimizeControl());
+
+
+
+//Marker
 var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "#ff7800",
@@ -133,3 +186,4 @@ firebase.auth().onAuthStateChanged(function(user) {
       });
     }
 });
+
