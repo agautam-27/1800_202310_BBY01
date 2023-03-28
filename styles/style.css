@@ -220,6 +220,8 @@ h5 {
       width: 100%;
       display: block;
     }
+
+    
   }
 /*-------------------------------------
  * customize material design icon sizes 
@@ -354,5 +356,4 @@ a:hover{
   height: 100vh;
   width: 100vw;
 }
-
 

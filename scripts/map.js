@@ -3,25 +3,43 @@
 var firestore = firebase.firestore();
 
 
-var map = L.map('map').setView([49.1913, -122.8490], 13);
+var map = L.map('map');
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    // Success callback - center map on user's location
+    var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
+    map.setView(latlng, 13);
+  }, function() {
+    // Error callback - use default location
+    map.setView([49.1913, -122.8490], 13);
+  });
+} else {
+  // Geolocation not supported - use default location
+  map.setView([49.1913, -122.8490], 13);
+}
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-
+L.control.locate().addTo(map);
 
 // //Routing Button
 L.Routing.control({
     waypoints: [
     ],
     showAlternatives: true,
+    collapsible: true,
+    show: false,
+    lineOptions: {
+      styles: [{color: 'green', opacity: .7, weight: 5}]
+   },
     altLineOptions: {
         styles: [
             {color: 'black', opacity: 0.15, weight: 9},
             {color: 'white', opacity: 0.8, weight: 6},
-            {color: 'blue', opacity: 0.5, weight: 2}
+            {color: 'blue', opacity: 0.5, weight: 3}
         ]
     },
     geocoder: L.Control.Geocoder.nominatim(),
@@ -31,45 +49,8 @@ L.Routing.control({
     autoRoute: true,
   }).addTo(map);
 
-  
 
-// // Create a new Leaflet control for the minimize button
-var minimizeControl = L.Control.extend({
-    options: {
-        position: 'topleft'
-    },
-    
-    onAdd: function (map) {
-        // Create a container element for the button
-        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-        
-        // Create the button element and add it to the container
-        var button = L.DomUtil.create('a', 'leaflet-control-minimize-button', container);
-        button.title = 'Minimize Routing Machine';
-        
-        // Add a click event listener to the button
-        L.DomEvent.on(button, 'click', function (event) {
-            // Toggle the visibility of the routing control
-            var routingControl = document.querySelector('.leaflet-routing-container');
-            if (routingControl.style.display == 'none') {
-                routingControl.style.display = 'block';
-            } else {
-                routingControl.style.display = 'none';
-            }
-            
-            // Prevent the click event from propagating to the map
-            L.DomEvent.stopPropagation(event);
-        });
-        
-        return container;
-    }
-});
-
-// Add the minimize button control to the map
-map.addControl(new minimizeControl());
-
-
-
+//Marker
 var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "#ff7800",
@@ -204,3 +185,41 @@ function onMapMouseDown(e) {
       });
     }
   });
+
+// Create a bookmarks object to store bookmarks
+var bookmarks = {};
+
+// Add a bookmark button to the map
+L.easyButton('fa-bookmark', function() {
+  var name = prompt('Enter a name for the bookmark:');
+  if (name !== null && name !== '') {
+    bookmarks[name] = map.getCenter();
+    updateBookmarks();
+  }
+}).addTo(map);
+
+// // Update the bookmarks list
+// function updateBookmarks() {
+//   var list = document.getElementById('bookmarks-list');
+//   list.innerHTML = '';
+//   for (var name in bookmarks) {
+//     var li = document.createElement('li');
+//     var a = document.createElement('a');
+//     a.href = '#';
+//     a.innerHTML = name;
+//     a.onclick = (function(name) {
+//       return function() {
+//         map.setView(bookmarks[name], 13);
+//       };
+//     })(name);
+//     li.appendChild(a);
+//     list.appendChild(li);
+//   }
+// }
+
+// // Add any initial bookmarks
+// bookmarks['London'] = L.latLng(51.505, -0.09);
+
+// // Update the bookmarks list initially
+// updateBookmarks();
+
