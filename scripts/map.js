@@ -89,8 +89,9 @@ function onMapMouseDown(e) {
   mouseDown = true;
   longPressTimeout = setTimeout(function() {
     if (mouseDown) {
-      if (confirmCreateMarker) {
-        var conditions = ["snow", "ice", "flood"];
+      // var confirmCreateMarker = confirm("Do you want to mark a hazard here?");
+      // if (confirmCreateMarker) {
+        var conditions = ["Snow", "Ice", "Flood"];
 
         // Create a popup with the options
         var popupContent = "Please select a condition:<br>";
@@ -163,7 +164,6 @@ function onMapMouseDown(e) {
 
             });
           });
-        }
         }
     }, 2000);
   }
