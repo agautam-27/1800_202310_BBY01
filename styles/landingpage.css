@@ -80,9 +80,90 @@ h1 {
 
 /* NAVBAR CSS ENDS HERE */
 
+/* STATS SECTION STARTS HERE */
+
+ul {
+  margin: 0 auto;
+  text-align: center;
+}
+
+li {
+  text-align: center;
+}
+
+
+.country {
+  border-radius: 10px;
+  width: 100%;
+  padding: 2%;
+  /* background-color: #A3CEF1; */
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.country:hover {
+  padding: 2%;
+  background-color: #6096ba;
+  color: pink;
+  width: 100%;
+  transform: translateY(-10px);
+}
+
+.points {
+  border-radius: 10px;
+  width: 100%;
+  padding: 2%;
+  /* background-color: #A3CEF1; */
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.points:hover {
+  padding: 2%;
+  background-color: #6096ba;
+  color: pink;
+  width: 100%;
+  transform: translateY(-10px);
+}
+
+.email {
+  border-radius: 10px;
+  width: 100%;
+  padding: 2%;
+  /* background-color: #A3CEF1; */
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.email:hover {
+  padding: 2%;
+  background-color: #6096ba;
+  color: pink;
+  width: 100%;
+  transform: translateY(-10px);
+}
+
+.city {
+  border-radius: 10px;
+  width: 100%;
+  padding: 2%;
+  /* background-color: #A3CEF1; */
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.city:hover {
+  padding: 2%;
+  background-color: #6096ba;
+  color: pink;
+  width: 100%;
+  transform: translateY(-10px);
+}
 
 
 
+
+/* STATS SECTION STARTS HERE */
 
 /* MAIN SECTION CSS STARTS HERE */
 
@@ -428,77 +509,32 @@ font-size: 30pt;
   
   /* NAVBAR CSS STARTS HERE  */
   nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #274c67;
-    ;
-    color: #6096ba;
-    padding: 10px 20px;
-    font-size: 10pt;
-    font-weight: bold;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 16pt;
   }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
+
   .logo img {
-    height: 80px;
-    margin-right: 10px;
+    height: 75px;
   }
-  
-  .logo a {
-    text-decoration: none;
-    color: #274c77;
-  }
-  
-  .logo a {
-    text-decoration: none;
-    background: linear-gradient(to right, pink 48%, #6096ba 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  h1 {
-    font-size: 30pt;
-    margin: 0;
-    font-family: 'CustomFont', sans-serif;
-  
-  }
-  
+
   .menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    margin-top: 20px;
   }
-  
+
   .menu li {
-    margin-right: 70px;
+    margin: 0;
+    margin-right: 20px;
+    margin-left: 20px;
   }
-  
+
+  .menu li:last-child {
+    margin-bottom: 0;
+  }
+
   .menu a {
-    color: #6096ba;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .menu a:hover {
-    color: pink;
-  }
-  
-  #btnme {
-    background-color: #1a344c;
-    padding: 10px 20px;
-    font-size: 20pt;
-  }
-  
-  #btnme:hover {
-    color: pink;
-    background-color: #6096ba;
-    border: 2px solid #e7ecef;
+    display: block;
+    padding: 10px 0;
   }
   
   /* NAVBAR CSS ENDS HERE */
@@ -587,11 +623,12 @@ font-size: 30pt;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(255, 255, 255, 0.3);
     transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
   }
   
   .left {
     flex: 1;
-    margin-left: 10%;
+    margin:auto;
   }
   
   .right {
@@ -642,7 +679,7 @@ font-size: 30pt;
   
   .left2 {
     flex: 1;
-    margin-left: 35%;
+    margin-left: 10%;
     border-radius: 10px;
     width: 600px;
     padding: 2%;
@@ -659,7 +696,7 @@ font-size: 30pt;
   }
   
   .right2 {
-    flex: 1;
+    flex: 5;
   }
   
   /* ! PHONE # 2 CSS ENDS */
@@ -667,7 +704,7 @@ font-size: 30pt;
   /* ! PHONE # 3 CSS  */
   
   .phone-container3 {
-    margin-top: 0;
+    padding-top: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -722,21 +759,17 @@ font-size: 30pt;
   
   
   .card-container1 {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 2%;
-    margin-right: 2%;
+    flex-wrap: wrap;
   }
   
   .card1 {
-    width: 30%;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px grey;
+    width: 100%;
+    margin-bottom: 20px;
   }
   
   .card-header {
     position: relative;
+    width: 100%;
     padding: 20px;
     text-align: center;
   }
