@@ -70,7 +70,6 @@ function onMapMouseDown(e) {
   mouseDown = true;
   longPressTimeout = setTimeout(function() {
     if (mouseDown) {
-      var confirmCreateMarker = confirm("Do you want to mark a hazard here?");
       if (confirmCreateMarker) {
         var conditions = ["snow", "ice", "flood"];
 

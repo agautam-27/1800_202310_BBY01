@@ -61,7 +61,7 @@
     </nav>
 
     <!-- the body of your page goes here -->
-    <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+    <link rel="stylesheet" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
 
 <div class="container">
     <div class="row">
@@ -70,7 +70,7 @@
                 <div class="border-bottom p-4">
                     <div class="osahan-user text-center">
                         <div class="osahan-user-media">
-                            <img src="./images/avator2.jpg" alt="Mike" style="width:100%">
+                            <img id="mypic-goes-here" width=225 height=250/>
                             <div class="osahan-user-media-body">
                                 <h6 class="mb-2"><span id="name-goes-here"></h6>
                                 <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="../ProfileEdit.html"><i class="icofont-ui-edit"></i> EDIT</a></p>
@@ -80,8 +80,8 @@
                 </div>
                 <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
                     <li class="nav-item">
+                        <a class="nav-link" id="stats" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false"><i class="stats"></i> Stats</a>
                         <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Favourites</a>
-                        <a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false"><i class="icofont-heart"></i> Stats</a>
                         <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="icofont-heart"></i> Reviews</a>
                     </li>
                 </ul>
@@ -89,154 +89,7 @@
         </div>
         <div class="col-md-9">
             <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade  active show" id="favourites" role="tabpanel" aria-labelledby="favourites-tab">
-                        <h4 class="font-weight-bold mt-0 mb-4">Favourites</h4>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6 mb-4 pb-2">
-                                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-                                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                        <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                        <a href="#">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="#" class="text-black">Stat 1
-                                             </a>
-                                          </h6>
-                                            <p class="text-gray mb-3">placeholder</p>
-                                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i>placeholder</span> <span class="float-right text-black-50">placeholder</span></p>
-                                        </div>
-                                        <div class="list-card-badge">
-                                            <span class="badge badge-danger">placeholder</span> <small> placeholder </small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 mb-4 pb-2">
-                                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-                                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i>placeholder</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                        <div class="member-plan position-absolute"><span class="badge badge-dark">placeholder</span></div>
-                                        <a href="#">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="#" class="text-black">placeholder</a></h6>
-                                            <p class="text-gray mb-3">placeholder</p>
-                                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> placeholder</span> <span class="float-right text-black-50">placeholder</span></p>
-                                        </div>
-                                        <div class="list-card-badge">
-                                            <span class="badge badge-success">placeholder</span> <small>placeholder</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 mb-4 pb-2">
-                                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-                                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> placeholder</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                        <div class="member-plan position-absolute"><span class="badge badge-dark">placeholder</span></div>
-                                        <a href="#">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="#" class="text-black">placeholder
-                                             </a>
-                                          </h6>
-                                            <p class="text-gray mb-3">placeholder</p>
-                                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i>placeholder</span> <span class="float-right text-black-50">placeholder</span></p>
-                                        </div>
-                                        <div class="list-card-badge">
-                                            <span class="badge badge-danger">placeholder</span> <small>placeholder</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 mb-4 pb-2">
-                                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-                                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i>placeholder</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                        <div class="member-plan position-absolute"><span class="badge badge-dark">placeholder</span></div>
-                                        <a href="#">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="#" class="text-black">placeholder
-                                             </a>
-                                          </h6>
-                                            <p class="text-gray mb-3">placeholder</p>
-                                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> placeholder</span> <span class="float-right text-black-50">placeholder</span></p>
-                                        </div>
-                                        <div class="list-card-badge">
-                                            <span class="badge badge-danger">placeholder</span> <small>placeholder</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 mb-4 pb-2">
-                                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-                                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> placeholder</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                        <div class="member-plan position-absolute"><span class="badge badge-dark">placeholder</span></div>
-                                        <a href="#">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="#" class="text-black">placeholder
-                                             </a>
-                                          </h6>
-                                            <p class="text-gray mb-3">placeholder</p>
-                                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> placeholder</span> <span class="float-right text-black-50">placeholder</span></p>
-                                        </div>
-                                        <div class="list-card-badge">
-                                            <span class="badge badge-danger">placeholder</span> <small>placeholder</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 mb-4 pb-2">
-                                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-                                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i>placeholder</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
-                                        <div class="member-plan position-absolute"><span class="badge badge-dark">placeholder</span></div>
-                                        <a href="#">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="#" class="text-black">placeholder
-                                             </a>
-                                          </h6>
-                                            <p class="text-gray mb-3">placeholder</p>
-                                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i>placeholder</span> <span class="float-right text-black-50">placeholder</span></p>
-                                        </div>
-                                        <div class="list-card-badge">
-                                            <span class="badge badge-danger">placeholder</span> <small>placeholder </small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="col-md-12 text-center load-more">
-                                <button class="btn btn-primary" type="button" disabled="">
-                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Loading...
-                                </button>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
+                <p id="statSection"></p>
             </div>
         </div>
     </div>
@@ -259,9 +112,11 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/profile.js"></script>
+    <script src="./scripts/stats.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>

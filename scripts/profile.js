@@ -1,37 +1,38 @@
 var currentUser;
 
-function populateUserInfo() {
+function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
+            if (user) {
+                // go and get the curret user info from firestore
+                currentUser = db.collection("users").doc(user.uid);
 
-            //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
-            //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    //get the data fields of the user
-                    var userName = userDoc.data().name;
-                    var userAddress = userDoc.data().Address;
-                    var userCity = userDoc.data().city;
+                currentUser.get()
+                    .then(userDoc => {
+                        let userName = userDoc.data().name;
+                        let userSchool = userDoc.data().school;
+                        let userCity = userDoc.data().city;
+                        let picUrl = userDoc.data().profilePic; 
 
-                    //if the data fields are not empty, then write them in to the form.
-                    if (userName != null) {
-                        document.getElementById("nameInput").value = userName;
-                    }
-                    if (userAddress != null) {
-                        document.getElementById("addressInput").value = userAddress;
-                    }
-                    if (userCity != null) {
-                        document.getElementById("cityInput").value = userCity;
-                    }
-                })
-        } else {
-            // No user is signed in.
-            console.log ("No user is signed in");
+                        
+                        if (picUrl != null){
+                            console.log(picUrl);
+								            // use this line if "mypicdiv" is a "div"
+                            //$("#mypicdiv").append("<img src='" + picUrl + "'>")
+                            $("#mypic-goes-here").attr("src", picUrl);
+                        }
+                        else
+                        console.log("picURL is null");
+                    })
+
+            } else {
+                console.log("no user is logged in")
+            }
         }
-    });
+
+    )
+
 }
+populateInfo();
 
 function editUserInfo() {
     //Enable the form fields
@@ -39,29 +40,48 @@ function editUserInfo() {
 }
 
 function saveUserInfo() {
-    //a) get user entered values
-    userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-    userAddress = document.getElementById('addressInput').value;     //get the value of the field with id="schoolInput"
-    userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
-    //b) update user's document in Firestore
-    currentUser.update({
-        name: userName,
-        address: userAddress,
-        city: userCity
+    firebase.auth().onAuthStateChanged(function (user) {
+        var storageRef = storage.ref("images/" + user.uid + ".jpg");
+
+        //Asynch call to put File Object (global variable ImageFile) onto Cloud
+        storageRef.put(ImageFile)
+            .then(function () {
+                console.log('Uploaded to Cloud Storage.');
+
+                //Asynch call to get URL from Cloud
+                storageRef.getDownloadURL()
+                    .then(function (url) { // Get "url" of the uploaded file
+                        console.log("Got the download URL.");
+												//get values from the from
+                        userName = document.getElementById('nameInput').value;
+                        userAddress = document.getElementById('addresslInput').value;
+                        userCity = document.getElementById('cityInput').value;
+
+                        //Asynch call to save the form fields into Firestore.
+                        db.collection("users").doc(user.uid).update({
+                                name: userName,
+                                address: userAddress,
+                                city: userCity,
+                                profilePic: url // Save the URL into users collection
+                            })
+                            .then(function () {
+                                console.log('Added Profile Pic URL to Firestore.');
+                                console.log('Saved use profile info');
+                                document.getElementById('personalInfoFields').disabled = true;
+                            })
+                    })
+            })
     })
-    .then(() => {
-        console.log("Document successfully updated!");
-        //c) disable edit 
-        document.getElementById('personalInfoFields').disabled = true;
-    });
 }
 
+var userID;
 
 function insertNameFromFirestore(){
     // to check if the user is logged in:
     firebase.auth().onAuthStateChanged(user =>{
         if (user){
            console.log(user.uid); // let me to know who is the user that logged in to get the UID
+           userID = user.uid;
            currentUser = db.collection("users").doc(user.uid); // will to to the firestore and go to the document of the user
            currentUser.get().then(userDoc=>{
                //get the user name
@@ -73,6 +93,6 @@ function insertNameFromFirestore(){
        }    
     })
 }
+
 insertNameFromFirestore();
 //call the function to run it 
-populateUserInfo();

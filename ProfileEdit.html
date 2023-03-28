@@ -65,6 +65,12 @@
         <h1>User Profile </h1>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
+
+                <div class="container text-center py-3">
+                    <img id="mypic-goes-here" src="images/avator.jpg" width=50 height=50/>
+                    <input type="file" id="mypic-input" accept="image/*" />
+                </div>
+
                 <div class="form-group">
                     <label >Name</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
@@ -87,14 +93,26 @@
     </div>
 
     <!-- our own footer goes here-->
-    <nav id="footerPlaceholder"></nav>
+    <footer class="fttr">
+        <h2>SnowGlobe</h2>
+        <p>
+            <a href="Home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Faq.html">Faq</a>
+        </p>
+        <p class="copyright">
+            Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
+        </p>
+    </footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/profile.js"></script>
+    <script src="./scripts/profileEdit.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
