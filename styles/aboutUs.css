@@ -93,11 +93,50 @@
 
 /* Story section ends here */
 
+@media only screen and (max-width : 700px) {
+    body {
+      overflow-x: hidden;
+  
+      /* background-color: wheat; */
+    }
+    
+    /* NAVBAR CSS STARTS HERE  */
+    nav {
+      flex-direction: column;
+      padding: 20px;
+      font-size: 16pt;
+    }
+  
+    .logo img {
+      height: 75px;
+    }
+  
+    .menu {
+      margin-top: 20px;
+    }
+  
+    .menu li {
+      margin: 0;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  
+    .menu li:last-child {
+      margin-bottom: 0;
+    }
+  
+    .menu a {
+      display: block;
+      padding: 10px 0;
+    }
+    
+    /* NAVBAR CSS ENDS HERE */
+}
 
 /* Founder Section (Connie's Part) Starts here */
 .connie {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 50px;
 }
@@ -122,20 +161,25 @@
     font-size: 18px;
     line-height: 1.5;
     color: #333;
-    margin-left: 20%;
+    margin-left: 5%;
 }
 
 @media only screen and (max-width: 768px) {
     .connie {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .connie-img {
         margin-top: 30px;
+        order: -1;
     }
 
     .connie-text {
-        margin-right: 0;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
 /* Founder Section (Connie's Part) Ends here */
@@ -169,15 +213,20 @@
 
 @media only screen and (max-width: 768px) {
     .anshul {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .anshul-img {
         margin-top: 30px;
+        order: -1;
     }
 
     .anshul-text {
-        margin-right: 0;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
 
@@ -213,4 +262,23 @@
     color: #333;
 }
 
-/* Founder Section (HIro's Part) Ends here */
+
+@media only screen and (max-width: 768px) {
+    .hiro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hiro-img {
+        margin-top: 30px;
+        order: -1;
+    }
+
+    .hiro-text {
+        margin-left: 1px;
+        margin-right: 10px;
+    }
+}
+/* Founder Section (Hiro's Part) Ends here */

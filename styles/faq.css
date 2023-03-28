@@ -37,6 +37,47 @@
 
 /* Banner image with text Ends Here */
 
+
+@media only screen and (max-width : 700px) {
+    body {
+      overflow-x: hidden;
+  
+      /* background-color: wheat; */
+    }
+    
+    /* NAVBAR CSS STARTS HERE  */
+    nav {
+      flex-direction: column;
+      padding: 20px;
+      font-size: 16pt;
+    }
+  
+    .logo img {
+      height: 75px;
+    }
+  
+    .menu {
+      margin-top: 20px;
+    }
+  
+    .menu li {
+      margin: 0;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  
+    .menu li:last-child {
+      margin-bottom: 0;
+    }
+  
+    .menu a {
+      display: block;
+      padding: 10px 0;
+    }
+    
+    /* NAVBAR CSS ENDS HERE */
+}
+
 /* Features heading starts here */
 
 .features h1 {

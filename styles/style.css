@@ -208,7 +208,7 @@ h5 {
     }
     #main{
       grid-area: map;
-      width: 100vw;
+      width: 80vw;
       margin: 0;
       padding: 0% ;
     }
@@ -355,4 +355,25 @@ a:hover{
   width: 100vw;
 }
 
+@media only screen and (max-width : 700px) {
+  body {
+    overflow-x: hidden;
 
+    /* background-color: wheat; */
+  }
+  
+  .collapsible ul {
+    display: none; /* hide the content by default */
+  }
+  
+  .collapsible:hover ul {
+    display: block; /* show the content when the user hovers over the header */
+  }
+
+  #map{
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+  }
+
+}
