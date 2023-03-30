@@ -50,6 +50,9 @@ L.Routing.control({
   }).addTo(map);
 
 
+
+
+
 //Marker
 var geojsonMarkerOptions = {
     radius: 8,
@@ -64,7 +67,6 @@ var mouseDown = false;
 
 // Set a variable to keep track of the timeout for the long press
 var longPressTimeout;
-
 // Add a marker to the map when the user clicks and holds for 3 seconds
 function onMapMouseDown(e) {
   mouseDown = true;
@@ -81,6 +83,8 @@ function onMapMouseDown(e) {
         }
         popupContent += "<br><textarea id='comments-input' placeholder='Enter comments'></textarea><br>";
         popupContent += "<button id='save-button'>Save</button>";
+        popupContent += "<button id='favorite-button'>Favorite</button>";
+
 
         // Create the marker and add the popup
         var marker = L.marker(e.latlng).addTo(map);
@@ -144,6 +148,59 @@ function onMapMouseDown(e) {
          
 
             });
+            var favoriteButton = document.getElementById("favorite-button");
+            favoriteButton.addEventListener("click", function(event) {
+              var user = firebase.auth().currentUser;
+              if (user) {
+                var marker = L.marker(e.latlng, {
+                  icon: L.icon({
+                    iconUrl: "/images/favoriteIcon.png",
+                    iconSize: [25, 25]
+                  })
+                }).addTo(map);
+                marker.bindPopup("<input type='text' id='marker-name-input' placeholder='Enter name' required><br><button id='save-marker-button'>Save</button>").openPopup();
+
+                var saveMarkerButton = document.getElementById("save-marker-button");
+                saveMarkerButton.addEventListener("click", function() {
+                  var name = document.getElementById("marker-name-input").value;
+                  if (name){
+                    var favoriteData = {
+                    name: name,
+                    latitude: e.latlng.lat,
+                    longitude: e.latlng.lng
+                  };
+                
+                // Add the favorite data to Firestore
+                firestore.collection("users").doc(user.uid).collection("favorites").add(favoriteData).then(function(docRef) {
+                  console.log("Favorite added to Firestore.");
+                  
+                  // Add click event listener to the marker to remove it and delete the favorite data from Firestore
+                  marker.on("click", function() {
+                    var confirmDeleteFavorite = confirm("Do you want to remove this location from favorites?");
+                    if (confirmDeleteFavorite) {
+                      marker.remove(); // Remove the marker from the map
+                      firestore.collection("users").doc(user.uid).collection("favorites").doc(docRef.id).delete().then(function() {
+                        console.log("Favorite data deleted from Firestore.");
+                      }).catch(function(error) {
+                        console.error("Error deleting favorite data from Firestore:", error);
+                      });
+                    }
+                  });
+
+                }).catch(function(error) {
+                  console.error("Error adding favorite to Firestore:", error);
+                });
+                
+                marker.closePopup(); // Close the marker's popup
+              } else {
+                alert("Please enter a name for the marker.");
+              }
+            });
+          } else {
+            console.log("User not signed in.");
+          }
+        });
+
           });
         }
     }, 2000);
@@ -169,14 +226,27 @@ function onMapMouseDown(e) {
           const popupContent = `<b>Condition:</b> ${condition}<br> <b>Comment:</b> ${comments}<br><b>Created at:</b> ${created_at.toDate().toLocaleString()}`;
           const isCurrentUserMarker = user_id === user.uid; // check if the current marker was created by the current user
           const markerColor = isCurrentUserMarker ? "#00FF00" : "#ff7800"; // set a different marker color for the user's own markers
-          const marker = L.circleMarker([latitude, longitude], {
-            radius: 8,
-            fillColor: markerColor,
-            color: "#000",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-          }).addTo(map);
+          
+          let iconUrl;
+          if (condition === "Snow") {
+            iconUrl = "/images/snow.png";
+          } else if (condition === "Ice") {
+            iconUrl = "/images/ice.png";
+          } else if (condition === "Flood") {
+            iconUrl = "/images/flood.png";
+          } else if (condition === "Other") {
+            iconUrl = "/images/other.png";
+          } else {
+            iconUrl = "/images/default.png";
+          }
+          
+          const marker = L.marker([latitude, longitude], {
+            icon: L.icon({
+              iconUrl: iconUrl,
+              iconSize: [25, 25]
+          }),
+        }).addTo(map)
+
           marker.bindPopup(popupContent);
         });
       }).catch((error) => {
@@ -185,40 +255,107 @@ function onMapMouseDown(e) {
     }
   });
 
-// Create a bookmarks object to store bookmarks
-var bookmarks = {};
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      firestore.collection("users").doc(user.uid).collection("favorites")
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          var favoriteData = doc.data();
+          var favoriteMarker = L.marker([favoriteData.latitude, favoriteData.longitude], {
+            icon: L.icon({
+              iconUrl: "/images/favoriteIcon.png",
+              iconSize: [25, 25]
+            })
+          }).addTo(map).bindPopup(favoriteData.name);
+  
+          var holdDuration = 0; // Initialize the hold duration to 0
+          var holdTimer; // Declare the hold timer variable
+  
+          // Add mousedown event listener to the favorite marker to start the hold timer
+          favoriteMarker.on("mousedown", function() {
+            holdTimer = setInterval(function() {
+              holdDuration += 100; // Increment the hold duration by 100 milliseconds
+            }, 100);
+          });
+  
+          // Add mouseup event listener to the favorite marker to stop the hold timer and show the remove favorite prompt if the hold duration is at least 2 seconds
+          favoriteMarker.on("mouseup", function() {
+            clearInterval(holdTimer); // Stop the hold timer
+            if (holdDuration >= 1000) { // If the hold duration is at least 2 seconds
+              var confirmDeleteFavorite = confirm("Do you want to remove this location from favorites?");
+              if (confirmDeleteFavorite) {
+                favoriteMarker.remove();
+                firestore.collection("users").doc(user.uid).collection("favorites").doc(doc.id).delete().then(function() {
+                  console.log("Favorite data deleted from Firestore.");
+                }).catch(function(error) {
+                  console.error("Error deleting favorite data from Firestore:", error);
+                });
+              }
+            }
+            holdDuration = 0; // Reset the hold duration to 0
+          });
+        });
+      })
+      .catch(function(error) {
+        console.error("Error displaying favorites from Firestore:", error);
+      });
+  
+    } else {
+      console.log("User not signed in.");
+    }
+  });
+  
+// Add an "Info" button to the map using Leaflet EasyButton plugin
+const infoButton = L.easyButton({
+  position: "topright",
+  states: [{
+    stateName: "show-info",
+    icon: "fa-info",
+    title: "Show instructions",
+    onClick: function(btn, map) {
+      // Define the content of the popup window
+      const popupContent = `
+        <h3>Welcome to SnowGlobe! Let's Get Started</h3>
+        <ol>
+          <li>Hold Down on the map for 2 seconds to create a marker.</li>
+          <li>To mark a hazard on the road:</li>
+          <ol>
+            <li>Select the condition</li>
+            <li>Enter a comment</li>
+            <li>Click "Save"</li>
+          </ol>
+          <li>To mark a favorite location:</li>
+            <ol>
+            <li>Select Favorite</li>
+            <li>Enter a name</li>
+            <li>Click "Save"</li>
+            </ol>
+        </ol>
+      `;
+      // Create and open a popup window with the instructions
+      L.popup().setLatLng(map.getCenter()).setContent(popupContent).openOn(map);
+      // Change the button state to "hide-info" to allow closing the popup window
+      btn.state("hide-info");
+    }
+  }, {
+    stateName: "hide-info",
+    icon: "fa-times",
+    title: "Hide instructions",
+    onClick: function(btn, map) {
+      // Close the popup window
+      map.closePopup();
+      // Change the button state to "show-info" to allow showing the popup window again
+      btn.state("show-info");
+    }
+  }]
+});
 
-// Add a bookmark button to the map
-L.easyButton('fa-bookmark', function() {
-  var name = prompt('Enter a name for the bookmark:');
-  if (name !== null && name !== '') {
-    bookmarks[name] = map.getCenter();
-    updateBookmarks();
-  }
-}).addTo(map);
+// Add the "Info" button to the map
+infoButton.addTo(map);
 
-// // Update the bookmarks list
-// function updateBookmarks() {
-//   var list = document.getElementById('bookmarks-list');
-//   list.innerHTML = '';
-//   for (var name in bookmarks) {
-//     var li = document.createElement('li');
-//     var a = document.createElement('a');
-//     a.href = '#';
-//     a.innerHTML = name;
-//     a.onclick = (function(name) {
-//       return function() {
-//         map.setView(bookmarks[name], 13);
-//       };
-//     })(name);
-//     li.appendChild(a);
-//     list.appendChild(li);
-//   }
-// }
 
-// // Add any initial bookmarks
-// bookmarks['London'] = L.latLng(51.505, -0.09);
 
-// // Update the bookmarks list initially
-// updateBookmarks();
+  
+
 
