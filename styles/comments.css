@@ -72,34 +72,32 @@
 /* Features heading ends here */
 
 /* Comments Cards Section Starts here */
- .card {
-    
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
+.card {
+  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  display: inline-block;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
 
-  .card-body {
-    padding: 10px;
-  }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 
+.card-title {
+  font-size: 1.5rem;
+}
 
-  .card {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 10px;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  }
-  
-  .card-title {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  .card-text {
-    font-size: 1.1rem;
-  }
+.card-location {
+  font-size: 1.2rem;
+  margin-top: auto;
+}
+
+.card-date {
+  font-size: 0.8rem;
+}
 /* Comments Cards Section Ends here */
