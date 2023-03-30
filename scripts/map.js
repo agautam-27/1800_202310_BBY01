@@ -26,6 +26,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.control.locate().addTo(map);
 
 // //Routing Button
+
+
+
 L.Routing.control({
     waypoints: [
     ],
@@ -243,7 +246,7 @@ function onMapMouseDown(e) {
           const marker = L.marker([latitude, longitude], {
             icon: L.icon({
               iconUrl: iconUrl,
-              iconSize: [25, 25]
+              iconSize: [30, 30]
           }),
         }).addTo(map)
 
@@ -332,6 +335,7 @@ const infoButton = L.easyButton({
             <li>Click "Save"</li>
             </ol>
         </ol>
+        <h3>Earn points by marking road hazards and cash them in for rewards!</h3>
       `;
       // Create and open a popup window with the instructions
       L.popup().setLatLng(map.getCenter()).setContent(popupContent).openOn(map);
