@@ -675,8 +675,13 @@ font-size: 30pt;
     margin-top: 0%;
     flex-direction: row;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(255, 255, 255, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
   }
-  
+
   .left2 {
     flex: 1;
     margin-left: 10%;
@@ -696,7 +701,9 @@ font-size: 30pt;
   }
   
   .right2 {
-    flex: 5;
+    margin-left: -100px;
+    flex: 3;
+    transform: scale(0.6);
   }
   
   /* ! PHONE # 2 CSS ENDS */
