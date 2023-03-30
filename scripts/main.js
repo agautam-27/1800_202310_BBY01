@@ -1,20 +1,33 @@
-// function getNameFromAuth() {
-//     firebase.auth().onAuthStateChanged(user => {
-//         // Check if a user is signed in:
-//         if (user) {
-//             // Do something for the currently logged-in user here: 
-//             userName = user.displayName;
-
-//             // method #1:  insert with JS
-//             document.getElementById("name-goes-here").innerText = userName;    
-//             //method #2:  insert using jquery
-//             //$("#name-goes-here").text(userName); //using jquery
-//             //method #3:  insert using querySelector
-//             //document.querySelector("#name-goes-here").innerText = userName
-
-//         } else {
-//             // No user is signed in.
-//         }
-//     });
-// }
-// getNameFromAuth(); //run the function
+function getNameAndImageFromAuth() {
+    firebase.auth().onAuthStateChanged(user => {
+      // Check if a user is signed in:
+      if (user) {
+        // Do something for the currently logged-in user here:
+        const userName = user.displayName;
+        const userId = user.uid;
+  
+        // Get user document from Firestore
+        firebase.firestore().collection("users").doc(userId).get()
+          .then(doc => {
+            if (doc.exists) {
+              const userData = doc.data();
+              const userImage = userData.profilePic;
+              // Update name and image elements
+              document.getElementById("name-goes-here").innerText = userName;
+              document.getElementById("user-image").src = userImage;
+            } else {
+              console.log("No such document!");
+            }
+          })
+          .catch(error => {
+            console.log("Error getting document:", error);
+          });
+      } else {
+        // No user is signed in.
+      }
+    });
+  }
+  
+  getNameAndImageFromAuth(); //run the function
+  
+  

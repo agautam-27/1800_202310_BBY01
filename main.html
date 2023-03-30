@@ -35,7 +35,7 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--MAP CSS-->
@@ -72,11 +72,30 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <!-- Main Body -->
+
+
+    <div style="position: relative;">
+        <div id="map" style="width: 100vw; height: 100vh;"></div>
+        <div style="position: absolute; bottom: 20px; left: 20px; z-index: 999; padding: 10px; background-color: #274c67; border-radius: 50px;">
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                    <img id="user-image" src="" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong><span id="name-goes-here" style="color: wheat;">John Doe</span></strong>
+                </a>
+                            
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                    <li><a class="dropdown-item" href="profile.html">Settings</a></li>
+                    <li><a class="dropdown-item" href="comments.html">My pings</a></li>
+                    <li><a class="dropdown-item" href="rewards.html">My Rewards</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="home.html">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     
-    <div id="map" style='height: 100vh; width: 100vw; display: flex;'></div>
-
-
-
+    
 
       
     

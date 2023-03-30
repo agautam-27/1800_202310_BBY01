@@ -77,33 +77,53 @@ function onMapMouseDown(e) {
     if (mouseDown) {
       // var confirmCreateMarker = confirm("Do you want to mark a hazard here?");
       // if (confirmCreateMarker) {
-        var conditions = ["Snow", "Ice", "Flood"];
+        var conditions = ["Snow", "Ice", "Flood", "Other"];
 
         // Create a popup with the options
         var popupContent = "Please select a condition:<br>";
         for (var i = 0; i < conditions.length; i++) {
-          popupContent += "<input type='radio' name='condition' value='" + conditions[i] + "'>" + conditions[i] + "<br>";
+          if (conditions[i] === "Other") {
+            popupContent += "<input type='radio' name='condition' value='" + conditions[i] + "' id='other-radio'>" + conditions[i] + "<br>";
+            popupContent += "<div id='other-container' style='display:none;'><br><textarea id='other-input' placeholder='Enter condition'></textarea></div>";
+          } else {
+            popupContent += "<input type='radio' name='condition' value='" + conditions[i] + "'>" + conditions[i] + "<br>";
+          }
         }
         popupContent += "<br><textarea id='comments-input' placeholder='Enter comments'></textarea><br>";
         popupContent += "<button id='save-button'>Save</button>";
-        popupContent += "<button id='favorite-button'>Favorite</button>";
-
-
+        popupContent += "<button id='delete-button'>Delete</button>"; // Add the delete button
+  
         // Create the marker and add the popup
         var marker = L.marker(e.latlng).addTo(map);
         marker.bindPopup(popupContent).openPopup();
-
+  
         marker.on("popupopen", function() {
+          var otherRadio = document.getElementById("other-radio");
+          var otherContainer = document.getElementById("other-container");
+          var otherInput = document.getElementById("other-input");
+  
+          otherRadio.addEventListener("change", function(event) {
+            if (event.target.checked) {
+              otherContainer.style.display = "block";
+            } else {
+              otherContainer.style.display = "none";
+            }
+          });
+  
           var saveButton = document.getElementById("save-button");
           saveButton.addEventListener("click", function(event) {
             var condition = document.querySelector("input[name='condition']:checked").value;
             var comments = document.getElementById("comments-input").value;
             var now = new Date();
             var dateTime = now.toLocaleString();
-
+  
+            if (condition === "Other") {
+              condition = otherInput.value;
+            }
+  
             var popupContent = "<b>Condition: </b>" + condition + "<br><b>Comments: </b>" + comments + "<br><b>Created at: </b>" + dateTime;
             marker.setPopupContent(popupContent);
-
+  
             // Save the marker data to Firestore
             var user = firebase.auth().currentUser;
             if (user) {
@@ -115,39 +135,39 @@ function onMapMouseDown(e) {
                 longitude: e.latlng.lng,
                 user_id: user.uid // add this field to set the user ID
               };
-              
+  
               // Add Points to users
               firestore.collection("users").doc(user.uid).collection("markers").add(markerData).then(function(docRef) {
                 console.log("Marker added to Firestore.");
-
+  
                 // Increment user's points
                 firestore.collection("users").doc(user.uid).update({ points: firebase.firestore.FieldValue.increment(1) }).then(function() {
                   console.log("User's points incremented.");
                 }).catch(function(error) {
                   console.error("Error incrementing user's points:", error);
                 });
-
-                // Add click event listener to marker to delete it
-                marker.on("click", function() {
-                  var confirmDeleteMarker = confirm("Do you want to delete this marker?");
-                  if (confirmDeleteMarker) {
-                    marker.remove(); // Remove the marker from the map
-                    firestore.collection("users").doc(user.uid).collection("markers").doc(docRef.id).delete().then(function() {
-                      console.log("Marker data deleted from Firestore.");
-                    }).catch(function(error) {
-                      console.error("Error deleting marker data from Firestore:", error);
-                    });
-                  }
+  
+                  // Add click event listener to marker to delete it
+                  marker.on("click", function() {
+                    var confirmDeleteMarker = confirm("Do you want to delete this marker?");
+                    if (confirmDeleteMarker) {
+                      marker.remove(); // Remove the marker from the map
+                      firestore.collection("users").doc(user.uid).collection("markers").doc(docRef.id).delete().then(function() {
+                        console.log("Marker data deleted from Firestore.");
+                      }).catch(function(error) {
+                        console.error("Error deleting marker data from Firestore:", error);
+                      });
+                    }
+                  });
+  
+                }).catch(function(error) {
+                  console.error("Error adding marker to Firestore:", error);
                 });
-
-              }).catch(function(error) {
-                console.error("Error adding marker to Firestore:", error);
-              });
-            } else {
-              console.log("User not signed in.");
-            }
-
-            marker.closePopup();
+              } else {
+                console.log("User not signed in.");
+              }
+  
+              marker.closePopup();
          
 
             });
@@ -232,15 +252,15 @@ function onMapMouseDown(e) {
           
           let iconUrl;
           if (condition === "Snow") {
-            iconUrl = "/images/snow.png";
+            iconUrl = "/images/snow1.png";
           } else if (condition === "Ice") {
-            iconUrl = "/images/ice.png";
+            iconUrl = "/images/ice1.png";
           } else if (condition === "Flood") {
-            iconUrl = "/images/flood.png";
+            iconUrl = "/images/flood1.png";
           } else if (condition === "Other") {
             iconUrl = "/images/other.png";
           } else {
-            iconUrl = "/images/default.png";
+            iconUrl = "/images/other.png";
           }
           
           const marker = L.marker([latitude, longitude], {
@@ -251,6 +271,23 @@ function onMapMouseDown(e) {
         }).addTo(map)
 
           marker.bindPopup(popupContent);
+          
+          // *TIMEOUT FEATURE 
+          // Schedule the removal of the marker after 1 minute if it belongs to the current user
+        if (isCurrentUserMarker) {
+          const now = new Date();
+          const diff = now.getTime() - created_at.toDate().getTime(); // calculate time difference in milliseconds
+          const timeToLive = 60000; // set time to live to 1 minute (60,000 milliseconds)
+
+          if (diff >= timeToLive) {
+            map.removeLayer(marker);
+          } else {
+            const timeUntilRemoval = timeToLive - diff;
+            setTimeout(() => {
+              map.removeLayer(marker);
+            }, timeUntilRemoval);
+          }
+        }
         });
       }).catch((error) => {
         console.error("Error getting markers:", error);
@@ -267,8 +304,8 @@ function onMapMouseDown(e) {
           var favoriteData = doc.data();
           var favoriteMarker = L.marker([favoriteData.latitude, favoriteData.longitude], {
             icon: L.icon({
-              iconUrl: "/images/favoriteIcon.png",
-              iconSize: [25, 25]
+              iconUrl: "/images/star1.png",
+              iconSize: [55, 55]
             })
           }).addTo(map).bindPopup(favoriteData.name);
   
@@ -357,6 +394,8 @@ const infoButton = L.easyButton({
 
 // Add the "Info" button to the map
 infoButton.addTo(map);
+
+
 
 
 
