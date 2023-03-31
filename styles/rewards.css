@@ -52,7 +52,7 @@
     cursor: pointer;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   
   @media (min-width: 576px) {

@@ -251,14 +251,14 @@ function onMapMouseDown(e) {
           const markerColor = isCurrentUserMarker ? "#00FF00" : "#ff7800"; // set a different marker color for the user's own markers
           
           let iconUrl;
+          let iconSize = [30, 30];
           if (condition === "Snow") {
             iconUrl = "/images/snow1.png";
           } else if (condition === "Ice") {
-            iconUrl = "/images/ice1.png";
+            iconUrl = "/images/ice2.png";
+            iconSize = [40, 40]; // Increase size of ice2.png to 40x40
           } else if (condition === "Flood") {
             iconUrl = "/images/flood1.png";
-          } else if (condition === "Other") {
-            iconUrl = "/images/other.png";
           } else {
             iconUrl = "/images/other.png";
           }
@@ -271,7 +271,7 @@ function onMapMouseDown(e) {
         }).addTo(map)
 
           marker.bindPopup(popupContent);
-          
+
           // *TIMEOUT FEATURE 
           // Schedule the removal of the marker after 1 minute if it belongs to the current user
         if (isCurrentUserMarker) {
