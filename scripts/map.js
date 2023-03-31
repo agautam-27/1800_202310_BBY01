@@ -179,7 +179,7 @@ function onMapMouseDown(e) {
                 var marker = L.marker(e.latlng, {
                   icon: L.icon({
                     iconUrl: "/images/star1.png",
-                    iconSize: [25, 25]
+                    iconSize: [55, 55]
                   })
                 }).addTo(map);
                 marker.bindPopup("<input type='text' id='marker-name-input' placeholder='Enter name' required><br><button id='save-marker-button'>Save</button>").openPopup();
