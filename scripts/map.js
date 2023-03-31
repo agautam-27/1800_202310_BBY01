@@ -92,7 +92,8 @@ function onMapMouseDown(e) {
         popupContent += "<br><textarea id='comments-input' placeholder='Enter comments'></textarea><br>";
         popupContent += "<button id='save-button'>Save</button>";
         popupContent += "<button id='delete-button'>Delete</button>"; // Add the delete button
-  
+        popupContent += "<button id='favorite-button'>Favorite</button>"; // Add the delete button
+
         // Create the marker and add the popup
         var marker = L.marker(e.latlng).addTo(map);
         marker.bindPopup(popupContent).openPopup();
@@ -177,7 +178,7 @@ function onMapMouseDown(e) {
               if (user) {
                 var marker = L.marker(e.latlng, {
                   icon: L.icon({
-                    iconUrl: "/images/favoriteIcon.png",
+                    iconUrl: "/images/star1.png",
                     iconSize: [25, 25]
                   })
                 }).addTo(map);
