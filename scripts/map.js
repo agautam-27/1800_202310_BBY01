@@ -32,8 +32,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
   // Pass the user's current location as the first waypoint
   L.Routing.control({
-    waypoints: [
-      latlng, // user's current location
+    waypoints: [, latlng // user's current location
     ],
     showAlternatives: true,
     collapsible: true,
