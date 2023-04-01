@@ -27,23 +27,26 @@ L.control.locate().addTo(map);
 
 // //Routing Button
 
+navigator.geolocation.getCurrentPosition(function(position) {
+  var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
 
-
-L.Routing.control({
+  // Pass the user's current location as the first waypoint
+  L.Routing.control({
     waypoints: [
+      latlng, // user's current location
     ],
     showAlternatives: true,
     collapsible: true,
     show: false,
     lineOptions: {
       styles: [{color: 'green', opacity: .7, weight: 5}]
-   },
+    },
     altLineOptions: {
-        styles: [
-            {color: 'black', opacity: 0.15, weight: 9},
-            {color: 'white', opacity: 0.8, weight: 6},
-            {color: 'blue', opacity: 0.5, weight: 3}
-        ]
+      styles: [
+        {color: 'black', opacity: 0.15, weight: 9},
+        {color: 'white', opacity: 0.8, weight: 6},
+        {color: 'blue', opacity: 0.5, weight: 3}
+      ]
     },
     geocoder: L.Control.Geocoder.nominatim(),
     routeWhileDragging: true,
@@ -51,9 +54,7 @@ L.Routing.control({
     autoComplete: true,
     autoRoute: true,
   }).addTo(map);
-
-
-
+});
 
 
 //Marker
