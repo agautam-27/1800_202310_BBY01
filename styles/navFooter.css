@@ -72,6 +72,17 @@ nav {
     border: 2px solid #e7ecef;
   }
 
+  #logout {
+  color: white;
+  font-size: 15pt;
+  border-radius: 5px;
+}
+
+#logout:hover {
+  background-color: #6096ba;
+  border: 2px solid #e7ecef;
+}
+
   /* FOOTER CSS */
   /* FOOTER CSS */
 
