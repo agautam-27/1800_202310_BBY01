@@ -22,7 +22,7 @@ function redirectToMain(event) {
   });
 }
 
-
+// Event listener to log out user from the website
 document.addEventListener('DOMContentLoaded', function() {
     const logoutButton = document.querySelector('#logout');
     logoutButton.addEventListener('click', function() {

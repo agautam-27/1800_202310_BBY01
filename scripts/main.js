@@ -29,3 +29,17 @@ function getNameAndImageFromAuth() {
 }
 
 getNameAndImageFromAuth(); //run the function
+
+
+// Event listener to log out user from the website
+document.addEventListener('DOMContentLoaded', function() {
+  const logoutButton = document.querySelector('#logout');
+  logoutButton.addEventListener('click', function() {
+    firebase.auth().signOut().then(function() {
+      window.location.href = "home.html";
+    }).catch(function(error) {
+      console.error(error);
+    });
+  });
+});
+
