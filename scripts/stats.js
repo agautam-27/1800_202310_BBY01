@@ -1,49 +1,39 @@
-// Get the button element
 var getDataButton = document.getElementById("stats");
-
-// Add an event listener to the button
-getDataButton.addEventListener("click", function () {
-  // Get a reference to the section where you want to display the data
+getDataButton.addEventListener("click", function() {
   var dataSection = document.getElementById("statSection");
-
   dataSection.innerHTML = "";
-
-  currentUser = db.collection("users").doc(userID); // will to to the firestore and go to the document of the user
+  currentUser = db.collection("users").doc(userID);
   currentUser.get().then((userDoc) => {
-    // Create a new paragraph element to display the data
     var dataElement = document.createElement("ul");
-
-    // Set the text content of the paragraph element to the data from Firestore
-    var countryText = "Country: " + userDoc.data().country;
+    var nameText = "Name: " + userDoc.data().name;
     var emailText = "Email: " + userDoc.data().email;
     var cityText = "City: " + userDoc.data().city;
+    var countryText = "Country: " + userDoc.data().country;
     var pointsText = "Points: " + (userDoc.data().points !== undefined ? userDoc.data().points : 0);
-    var countryItem = document.createElement("li");
+    var nameItem = document.createElement("li");
     var emailItem = document.createElement("li");
     var cityItem = document.createElement("li");
+    var countryItem = document.createElement("li");
     var pointsItem = document.createElement("li");
 
-    countryItem.textContent = countryText;
+    nameItem.textContent = nameText;
     emailItem.textContent = emailText;
     cityItem.textContent = cityText;
+    countryItem.textContent = countryText;
     pointsItem.textContent = pointsText;
 
-    countryItem.classList.add("country");
+    nameItem.classList.add("name");
     emailItem.classList.add("email");
     cityItem.classList.add("city");
+    countryItem.classList.add("country");
     pointsItem.classList.add("points");
 
-    dataElement.style.listStyleType = "none";
-
-    countryItem.style.fontSize = "40px";
-    emailItem.style.fontSize = "40px";
-    cityItem.style.fontSize = "40px";
-    pointsItem.style.fontSize = "40px";
-
-    dataElement.appendChild(countryItem);
+    dataElement.appendChild(nameItem);
     dataElement.appendChild(emailItem);
     dataElement.appendChild(cityItem);
+    dataElement.appendChild(countryItem);
     dataElement.appendChild(pointsItem);
+
     dataSection.appendChild(dataElement);
   });
 });
