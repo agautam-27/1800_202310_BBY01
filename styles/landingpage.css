@@ -77,6 +77,16 @@ h1 {
   background-color: #6096ba;
   border: 2px solid #e7ecef;
 }
+#logout {
+  color: white;
+  font-size: 15pt;
+  border-radius: 5px;
+}
+
+#logout:hover {
+  background-color: #6096ba;
+  border: 2px solid #e7ecef;
+}
 
 /* NAVBAR CSS ENDS HERE */
 
@@ -524,8 +534,8 @@ font-size: 30pt;
 
   .menu li {
     margin: 0;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
 
   .menu li:last-child {

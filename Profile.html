@@ -23,6 +23,8 @@
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <!-------------------------------------------------------->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -35,6 +37,7 @@
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <link rel="stylesheet" href="./styles/navFooter.css">
+    <link rel="stylesheet" href="./styles/profile.css">
     <link rel="stylesheet" href="./styles/landingpage.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
@@ -48,53 +51,68 @@
     <!-- our own navbar goes here -->
     <!-- <nav id="navbarPlaceholder"></nav> -->
 
-    <nav>
-        <div class="logo">
-            <a href="main.html"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
-            <h1><a href="main.html">SnowGlobe</a></h1>
-        </div>
-        <ul class="menu">
-            <li><a href="main.html">Home</a></li>
-            <li><a href="About.html">About us</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li><a href="Faq.html">FAQ</a></li>
-        </ul>
-    </nav>
+ <!-- ! NAVBAR STARTS HERE -->
+ <nav>
+    <div class="logo">
+      <a href="home.html"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
+      <h1><a href="home.html">SnowGlobe</a></h1>
+    </div>
+    <ul class="menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="#" id="logout">Log Out</a></li>
+    </ul>
+  </nav>
+  
+  <!-- ! NAVBAR ENDS HERE -->
 
     <!-- the body of your page goes here -->
-    <link rel="stylesheet" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous"> -->
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="osahan-account-page-left shadow-sm bg-white h-100">
-                <div class="border-bottom p-4">
-                    <div class="osahan-user text-center">
-                        <div class="osahan-user-media">
-                            <img id="mypic-goes-here" width=225 height=250/>
-                            <div class="osahan-user-media-body">
-                                <h6 class="mb-2"><span id="name-goes-here"></h6>
-                                <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="../ProfileEdit.html"><i class="icofont-ui-edit"></i> EDIT</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="osahan-account-page-left shadow-sm bg-white h-100">
+                    <div class="border-bottom p-4">
+                        <div class="osahan-user text-center">
+                            <div class="osahan-user-media">
+                                <div style="width: 225px; height: 225px; border-radius: 50%; overflow: hidden; margin: 0 auto;">
+                                    <img id="mypic-goes-here" width="100%" height="100%" />
+                                </div>
+                                <div class="osahan-user-media-body">
+                                    <h6 class="mb-2"><span id="name-goes-here"></span></h6>
+                                    <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="../ProfileEdit.html"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="stats" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false"><i class="stats"></i> Stats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="favorites-button" data-toggle="tab" href="#favorites-section" role="tab" aria-controls="favorites-section" aria-selected="false"><i class="favorites"></i> Favorites</a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link" id="stats" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false"><i class="stats"></i> Stats</a>
-                        <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Favourites</a>
-                        <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="icofont-heart"></i> Reviews</a>
-                    </li>
-                </ul>
             </div>
-        </div>
-        <div class="col-md-9">
-            <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
-                <p id="statSection"></p>
+            <div class="col-md-9">
+                <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+                    <div id="stats" class="tab-pane fade show active" role="tabpanel" aria-labelledby="stats-tab">
+                        <p id="statSection"></p>
+                    </div>
+                    <div id="favorites-section" class="tab-pane fade" role="tabpanel" aria-labelledby="favorites-button-tab">
+                        <p>Content for the favorites section goes here.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    
+    
+    
 
     <!-- our own footer goes here-->
     <footer class="fttr">
@@ -118,7 +136,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/profile.js"></script>
     <script src="./scripts/stats.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/pagelinking.js"></script>
 
 </body>
 

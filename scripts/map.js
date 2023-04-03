@@ -27,23 +27,25 @@ L.control.locate().addTo(map);
 
 // //Routing Button
 
+navigator.geolocation.getCurrentPosition(function(position) {
+  var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
 
-
-L.Routing.control({
-    waypoints: [
+  // Pass the user's current location as the first waypoint
+  L.Routing.control({
+    waypoints: [, latlng // user's current location
     ],
     showAlternatives: true,
     collapsible: true,
     show: false,
     lineOptions: {
       styles: [{color: 'green', opacity: .7, weight: 5}]
-   },
+    },
     altLineOptions: {
-        styles: [
-            {color: 'black', opacity: 0.15, weight: 9},
-            {color: 'white', opacity: 0.8, weight: 6},
-            {color: 'blue', opacity: 0.5, weight: 3}
-        ]
+      styles: [
+        {color: 'black', opacity: 0.15, weight: 9},
+        {color: 'white', opacity: 0.8, weight: 6},
+        {color: 'blue', opacity: 0.5, weight: 3}
+      ]
     },
     geocoder: L.Control.Geocoder.nominatim(),
     routeWhileDragging: true,
@@ -51,9 +53,7 @@ L.Routing.control({
     autoComplete: true,
     autoRoute: true,
   }).addTo(map);
-
-
-
+});
 
 
 //Marker
@@ -92,7 +92,8 @@ function onMapMouseDown(e) {
         popupContent += "<br><textarea id='comments-input' placeholder='Enter comments'></textarea><br>";
         popupContent += "<button id='save-button'>Save</button>";
         popupContent += "<button id='delete-button'>Delete</button>"; // Add the delete button
-  
+        popupContent += "<button id='favorite-button'>Favorite</button>"; // Add the delete button
+
         // Create the marker and add the popup
         var marker = L.marker(e.latlng).addTo(map);
         marker.bindPopup(popupContent).openPopup();
@@ -177,8 +178,8 @@ function onMapMouseDown(e) {
               if (user) {
                 var marker = L.marker(e.latlng, {
                   icon: L.icon({
-                    iconUrl: "/images/favoriteIcon.png",
-                    iconSize: [25, 25]
+                    iconUrl: "/images/star1.png",
+                    iconSize: [55, 55]
                   })
                 }).addTo(map);
                 marker.bindPopup("<input type='text' id='marker-name-input' placeholder='Enter name' required><br><button id='save-marker-button'>Save</button>").openPopup();

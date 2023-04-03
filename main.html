@@ -29,13 +29,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <link rel="stylesheet" href="/styles/style.css"/>
-
+    
     <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+
+    
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--MAP CSS-->
@@ -48,7 +48,7 @@
     crossorigin=""></script>
     <!---ROUTING MACHINE-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"/>
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
@@ -81,10 +81,10 @@
                             
                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                     <li><a class="dropdown-item" href="profile.html">Settings</a></li>
-                    <li><a class="dropdown-item" href="comments.html">My pings</a></li>
+                    <li><a class="dropdown-item" href="comments.html">My Markers</a></li>
                     <li><a class="dropdown-item" href="rewards.html">My Rewards</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="home.html">Log out</a></li>
+                    <li><a class="dropdown-item" id= "logout" href="#">Log out</a></li>
                 </ul>
             </div>
         </div>
@@ -100,6 +100,7 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/main.js"></script>
