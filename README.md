@@ -15,14 +15,14 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
+* Leaflet.Js (Map)
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* ...
-* ...
-* ...
+* User's should create an account/log in.
+* Create markers on the map to alert others of hazards. 
+* Earn points and cash them in for rewards
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
