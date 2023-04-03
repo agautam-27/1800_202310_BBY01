@@ -56,7 +56,7 @@ It has the following subfolders and files:
 ├── scripts                  # Folder for scripts
     /authenthication.js      # Authentication for firebase
     /client.js               #
-    /firebaseAPI_BBY01.js    # 
+    /firebaseAPI_BBY01.js    # API keys from Firestore
     /main.js                 # Code to display user name and profile photo.
     /map.js    		     # Contains code for map functions.
     /pagelinking.js          # 
