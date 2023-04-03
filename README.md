@@ -1,8 +1,7 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+We are developing SnowGlobe, a web app to help drivers and commuters to alert others of weather hazards on the road by using real-time and user data.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
@@ -55,12 +54,12 @@ It has the following subfolders and files:
 ├── images                   # Folder for images
     /blah.jpg                # Acknowledge source
 ├── scripts                  # Folder for scripts
-    /authenthication.js      #
+    /authenthication.js      # Authentication for firebase
     /client.js               #
-    /firebaseAPI_BBY01.js    #
-    /main.js                 #
-    /map.js    		     #
-    /pagelinking.js          #
+    /firebaseAPI_BBY01.js    # 
+    /main.js                 # Code to display user name and profile photo.
+    /map.js    		     # Contains code for map functions.
+    /pagelinking.js          # 
     /profile.js		     #
     /profileEdit.js          #
     /rewards.js  	     #
@@ -69,14 +68,14 @@ It has the following subfolders and files:
     /stats.js		     #
     /testprofile.js          #
 ├── styles                   # Folder for styles
-    /aboutus.css             #
-    /comments.css	     #
-    /contacts.css	     #
-    /faq.css	             #
-    /landingpage.css	     #
-    /navFooter.css  	     #
-    /profile.css   	     #
-    /rewards.css	     #
+    /aboutus.css             # CSS for about us page
+    /comments.css	     # CSS for comments page
+    /contacts.css	     # CSS for contacts page 
+    /faq.css	             # CSS for FAQ page 
+    /landingpage.css	     # CSS for landing page
+    /navFooter.css  	     # CSS for the navFooter
+    /profile.css   	     # CSS for profile page
+    /rewards.css	     # CSS for rewards page
 
 
 ```
