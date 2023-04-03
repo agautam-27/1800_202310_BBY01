@@ -223,7 +223,7 @@
       flex-direction: column;
       padding: 20px;
       font-size: 16pt;
-      width: 100%;
+      width: 106%;
     }
   
     .logo img {
@@ -236,7 +236,7 @@
   
     .menu li {
       margin: 0;
-      margin-right: 5px;
+      margin-right: 10px;
       margin-left: 5px;
       text-align: center;
     }
