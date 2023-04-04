@@ -34,7 +34,8 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/landingpage.css">
+    <link rel="stylesheet" href="../styles/navFooter.css">
+    <link rel="stylesheet" href="../styles/contact.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 </head>
@@ -44,56 +45,97 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
- 
-     <!-- ! NAVBAR STARTS HERE -->
+    <!-- our own navbar goes here -->
+    <!--<nav id="navbarPlaceholder"></nav>-->
+
+    <!-- the body of your page goes here -->
+    <!-- stuff -->
+    <!-- ! NAVBAR STARTS HERE -->
   <nav>
     <div class="logo">
-      <a href="home.html"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
-      <h1><a href="home.html">SnowGlobe</a></h1>
+      <a href="/index.html"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
+      <h1><a href="/index.html">SnowGlobe</a></h1>
     </div>
     <ul class="menu">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About us</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="/pages/About.html">About us</a></li>
+      <li><a href="/pages/Contact.html">Contact</a></li>
+      <li><a href="/pages/Faq.html">FAQ</a></li>
       <li><a href="#" id="logout">Log Out</a></li>
     </ul>
   </nav>
   
   <!-- ! NAVBAR ENDS HERE -->
 
+      <!-- * Faq Image Section Starts here  -->
+  
+      <div class="banner">
+        <img src="/images/contact.jpg" alt="Your Image">
+        <div class="text">
+          <h1>Contact Us</h1>
+        </div>
+      </div>
+    
+      <!-- * Faq Image Section Ends here  -->
+  
+  
+       <!-- ? Text heading -->
+    <div class="features">
+      <h1>Contact Us</h1>
+    </div>
+    <!-- ? Text heading -->
+
+    <!-- * Contact page form starts here -->
+    <section class="contact">
+        <div class="container">
+          <!-- <h2>Contact Us</h2> -->
+          <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+      
+    <!-- * Contact page form ends here -->
 
     <br>
     <br>
-    <br>
-    <div id="firebaseui-auth-container"></div>
-    <br>
-    <br>
-    <br>
+    <hr>
+   <!--! FOOTER SECITON STARTS HERE  -->
+
+   <footer class="fttr">
+    <h2>SnowGlobe</h2>
+    <p>
+      <a href="/index.html">Home</a>
+      <a href="/pages/About.html">About</a>
+      <a href="/pages/Contact.html">Contact</a>
+      <a href="/pages/Faq.html">Faq</a>
+    </p>
+    <p class="copyright">
+      Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
+    </p>
+  </footer>
+
+
+  <!--! FOOTER SECTION ENDS HERE  -->
 
     <!-- our own footer goes here-->
-    <hr>
-    <footer class="fttr">
-        <h2>SnowGlobe</h2>
-        <p>
-            <a href="Home.html">Home</a>
-            <a href="About.html">About</a>
-            <a href="Contact.html">Contact</a>
-            <a href="Faq.html">Faq</a>
-        </p>
-        <p class="copyright">
-            Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
-        </p>
-    </footer>
+    <!-- <nav id="footerPlaceholder"></nav> -->
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="./scripts/firebaseAPI_BBY01.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/pagelinking.js"></script>
+
+    <script src="../scripts/firebaseAPI_BBY01.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/pagelinking.js"></script>
+
 </body>
 
 </html>

@@ -36,9 +36,9 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/navFooter.css">
-    <link rel="stylesheet" href="./styles/profile.css">
-    <link rel="stylesheet" href="./styles/landingpage.css">
+    <link rel="stylesheet" href="../styles/navFooter.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+    <link rel="stylesheet" href="../styles/landingpage.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 </head>
@@ -51,17 +51,17 @@
     <!-- our own navbar goes here -->
     <!-- <nav id="navbarPlaceholder"></nav> -->
 
- <!-- ! NAVBAR STARTS HERE -->
- <nav>
+  <!-- ! NAVBAR STARTS HERE -->
+  <nav>
     <div class="logo">
-      <a href="home.html"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
-      <h1><a href="home.html">SnowGlobe</a></h1>
+      <a href="/index.html"><img src="/images/logo1.jpg" alt="Logo" width="80" height="60"></a>
+      <h1><a href="/index.html">SnowGlobe</a></h1>
     </div>
     <ul class="menu">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About us</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/pages/About.html">About us</a></li>
+      <li><a href="/pages/Contact.html">Contact</a></li>
+      <li><a href="/pages/Faq.html">FAQ</a></li>
       <li><a href="#" id="logout">Log Out</a></li>
     </ul>
   </nav>
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="osahan-user-media-body">
                                     <h6 class="mb-2"><span id="name-goes-here"></span></h6>
-                                    <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="../ProfileEdit.html"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                                    <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="/pages/ProfileEdit.html"><i class="icofont-ui-edit"></i> EDIT</a></p>
                                 </div>
                             </div>
                         </div>
@@ -115,28 +115,33 @@
     
 
     <!-- our own footer goes here-->
-    <footer class="fttr">
-        <h2>SnowGlobe</h2>
-        <p>
-            <a href="Home.html">Home</a>
-            <a href="About.html">About</a>
-            <a href="Contact.html">Contact</a>
-            <a href="Faq.html">Faq</a>
-        </p>
-        <p class="copyright">
-            Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
-        </p>
-    </footer>
+     <!--! FOOTER SECITON STARTS HERE  -->
+
+  <footer class="fttr">
+    <h2>SnowGlobe</h2>
+    <p>
+      <a href="/index.html">Home</a>
+      <a href="/pages/About.html">About</a>
+      <a href="/pages/Contact.html">Contact</a>
+      <a href="/pages/Faq.html">Faq</a>
+    </p>
+    <p class="copyright">
+      Copyright &copy All rights reserved; 2023 SnowGlobe, Inc
+    </p>
+  </footer>
+
+
+  <!--! FOOTER SECTION ENDS HERE  -->
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="./scripts/firebaseAPI_BBY01.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/profile.js"></script>
-    <script src="./scripts/stats.js"></script>
-    <script src="./scripts/pagelinking.js"></script>
+    <script src="../scripts/firebaseAPI_BBY01.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/profile.js"></script>
+    <script src="../scripts/stats.js"></script>
+    <script src="../scripts/pagelinking.js"></script>
 
 </body>
 

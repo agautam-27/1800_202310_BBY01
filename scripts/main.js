@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const logoutButton = document.querySelector('#logout');
   logoutButton.addEventListener('click', function() {
     firebase.auth().signOut().then(function() {
-      window.location.href = "home.html";
+      window.location.href = "/index.html";
     }).catch(function(error) {
       console.error(error);
     });
