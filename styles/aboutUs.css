@@ -211,8 +211,9 @@
     }
 
     .connie img {
+        margin-bottom: 10%;
         margin-top: 30px;
-        margin-left: 5%;
+        margin-left: 10%;
         align-content: center;
         padding-bottom: 100%;
     }
@@ -250,6 +251,7 @@
     width: 300px;
     height: auto;
     margin-left: 50px;
+    margin-bottom: 10%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -296,6 +298,7 @@
     width: 300px;
     height: auto;
     margin-right: 50px;
+    margin-bottom: 10%;
 }
 
 .hiro-text {
@@ -318,6 +321,7 @@
         margin-left: 5%;
         align-content: center;
         padding-bottom: 100%;
+        margin-bottom: 10%;
     }
 
     .hiro-text {
