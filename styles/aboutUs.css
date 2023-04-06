@@ -331,3 +331,49 @@
     }
 }
 /* Founder Section (Hiro's Part) Ends here */
+
+@media only screen and (max-width: 400px) {
+    .hiro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hiro img {
+        margin-top: -60%;
+        margin-left: 5%;
+        align-content: center;
+        padding-bottom: 100%;
+        margin-bottom: 90%;
+    }
+
+    .hiro-text {
+        margin-top: 100%;
+        margin-left: -120%;
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .connie {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .connie img {
+        margin-bottom: 80%;
+        margin-top: 30px;
+        margin-left: 10%;
+        align-content: center;
+        padding-bottom: 100%;
+    }
+
+    .connie-text {
+        margin-top: 50%;
+        margin-left: -80%;
+        margin-right: 10px;
+    }
+}
