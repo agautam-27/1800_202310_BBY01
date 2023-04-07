@@ -51,22 +51,65 @@ Content of the project folder:
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
+├── pages                    # folder for all html pages
+    About.html               # page about the team members
+    Contact.html             # page for users to email us
+    Faq.html                 # Frequently asked questions page
+    Profile.html             # User profile page
+    ProfileEdit.html         # Page to edit the user profile
+    comments.html            # page that displays all markers made by user
+    login.html               # login page for user
+    main.html                # main page after user logs in 
+    rewards.html             # page for rewards
 ├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
+    Anshul.png               # Made in Canva 
+    Connie.png               # Took the photo 
+    Connie1.png              # Made in Canva 
+    Dwayne.png               # Art Streibert 
+    Hiro.png                 # Made in Canva 
+    Keanu.png                # Lionsgate 
+    about2.png               # from Pexels
+    comments.jpg             # from Ministry of Foreign and CARICOM Affairs
+    contact.jpg              # from Pexels
+    emma.png                 # from InStyle
+    faq.jpeg                 # from Pexels
+    fav.png                  # from istockphoto
+    favicon.ico              # Made in photoshop
+    favorite.png             # from Flaticons
+    favoriteIcon.png         # from Flaticons
+    flood.png                # from Flaticons
+    flood1.png               # from Flaticons
+    ice.png                  # from Flaticons
+    ice1.png                 # from Flaticons
+    ice2.png                 # from Flaticons
+    image.jpg                # from COMP1800
+    logo1.jpg                # made in Photoshop
+    maps3.jpg                # from Pexels
+    mcdonalds.jpg            # from Pexels
+    notification.png         # from Pexels
+    notifications1.jpg       # from Pexels
+    notifications.png        # from Pexels
+    other.png                # from Flaticons
+    ph2.png                  # made in Photoshop
+    ping.jpg                 # from Pexels
+    rewards1.png             # from Pexels
+    snow.png                 # from Flaticons
+    snow1.png                # from Flaticons
+    star1.png                # from Flaticons 
+    starbucks.jpeg           # from Pexels 
+    staricon.png             # from Pexels
+    tim.jpeg                 # from Pexels
 ├── scripts                  # Folder for scripts
     /authenthication.js      # Authentication for firebase
-    /client.js               #
     /firebaseAPI_BBY01.js    # API keys from Firestore
     /main.js                 # Code to display user name and profile photo.
     /map.js    		     # Contains code for map functions.
-    /pagelinking.js          # 
-    /profile.js		     #
-    /profileEdit.js          #
-    /rewards.js  	     #
-    /script.js   	     #
-    /skeleton.js	     #
-    /stats.js		     #
-    /testprofile.js          #
+    /pagelinking.js          # Redirects user to certain pages if they are logged in or not 
+    /profile.js		     # Loads user data from firebase to profile.html
+    /profileEdit.js          # Allows edit for user profile
+    /rewards.js  	     # Code for rewards.html page
+    /skeleton.js	     # Loads the footer and nav bar
+    /stats.js		     # Loads the info of the user for prodfile page
 ├── styles                   # Folder for styles
     /aboutus.css             # CSS for about us page
     /comments.css	     # CSS for comments page
